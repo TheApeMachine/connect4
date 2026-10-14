@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "executable-connection-search"
+version = "0.1.1"
+description = "Frozen-model compositional graph search with independent executable checks"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+inference = ["torch", "transformers", "accelerate", "safetensors"]
+test = ["pytest>=7"]
+
+[project.scripts]
+connection-search = "connection_search.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["connection_search*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
